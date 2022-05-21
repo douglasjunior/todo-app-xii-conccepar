@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function App() {
+  return (
+    <main>
+      <h1>Tarefas</h1>
+      <form>
+        <input
+          aria-label="Informe uma tarefa para adicionar"
+          name="input"
+          type="text"
+          placeholder="O que você precisa fazer?"
+          value=""
+        />
+      </form>
+      <hr />
+      <div>
+        <label htmlFor="filter">Filtrar</label>
+        <select id="filter">
+          <option value="all">Todas</option>
+          <option value="completed">Concluídas</option>
+          <option value="uncompleted">Pendentes</option>
+        </select>
+      </div>
+      <ul>
+        <li>Tarefa A</li>
+        <li>Tarefa B</li>
+        <li>Tarefa C</li>
+      </ul>
+      <button>Remover concluídas</button>
+    </main>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const rootElement = document.querySelector("#root");
+
+ReactDOM.render(<App />, rootElement);
